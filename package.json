@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build --no-lint",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "TAILWIND_DISABLE_OXIDE=true"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.12",
