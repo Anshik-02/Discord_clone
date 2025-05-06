@@ -6,14 +6,8 @@ import { currentProfile } from "@/lib/current-profile";
 import { channelModel, memberModel } from "@/model/schema";
 import { redirect } from "next/navigation";
 
-interface ChannelIdPageProps{
-  params: {
-    serverId: string;
-    channelId: string;
-  };
-}
 
-export default async function ChannelIdPage({ params }: ChannelIdPageProps) {
+export default async function ChannelIdPage({ params }: any) {
   const profile = await currentProfile();
   if (!profile) {
     return redirect("/");

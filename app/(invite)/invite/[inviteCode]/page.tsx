@@ -1,15 +1,11 @@
 import { currentProfile } from '@/lib/current-profile'
 import { memberModel, profileModel, serverModel } from '@/model/schema'
 import { redirect } from 'next/navigation'
-import React from 'react'
+import { Metadata } from 'next'
 
-interface InviteCodePage {
-  params: {
-    inviteCode: string
-  }
-}
 
-export default async function InviteCodePage({ params }: InviteCodePage) {
+
+export default async function InviteCodePage({ params }: any) {
   const profile = await currentProfile()
   if (!profile) {
     return redirect("/")

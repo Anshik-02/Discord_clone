@@ -8,13 +8,8 @@ import { memberModel } from "@/model/schema";
 import { redirect } from "next/navigation";
 import React from "react";
 interface MemberIdPageProps {
-  params: {
-    memberId: string;
-    serverId: string;
-  };
-  searchParams:{
-    video?:boolean
-  }
+  params: any;
+  searchParams:any
 }
 export default async function MemberIdPage({ params,searchParams }: MemberIdPageProps) {
   const profile = await currentProfile();
