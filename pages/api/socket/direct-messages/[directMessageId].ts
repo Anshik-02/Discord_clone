@@ -31,7 +31,7 @@ const Message=await directMessageModel.findById(
     directMessageId
 )
 
-console.log(directMessageId,'dssdsdsd')
+
 const messages=await directMessageModel.updateOne({
     _id:directMessageId,
 },{message:message})

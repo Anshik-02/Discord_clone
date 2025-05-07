@@ -24,14 +24,14 @@ export default async function MemberIdPage({ params,searchParams }: MemberIdPage
     .populate("userId");
 
   if ( !currentMember) {
-    return console.log("uhhfdhfdhfh");
+    return redirect("/");
   }
   const conversationn = await getOrCreateConvo(currentMember._id,(await params).memberId);
-  if (!conversationn) return console.log("yaha dikkat hai");
+  if (!conversationn) return redirect("/");
 
   const { memberOne, memberTwo,conversation } = conversationn;
   const otherMember = memberOne.userId === profile.id ? memberOne : memberTwo;
-  console.log(otherMember, "dushadjoshdjahsjoh ");
+ 
 
   return (
     <div className="bg-white dark:bg-[#313338] flex flex-col h-screen">

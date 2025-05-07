@@ -42,7 +42,7 @@ export default function ServerSearch({ data }: ServerSearchProps) {
         </p>
       </button>
       
-      <CommandDialog open={open} onOpenChange={setOpen}>
+      {/* <CommandDialog open={open} onOpenChange={setOpen}>
   
     <CommandInput placeholder="Search all channels or members" />
     <CommandList>
@@ -62,7 +62,7 @@ export default function ServerSearch({ data }: ServerSearchProps) {
       })}
     </CommandList>
 
-</CommandDialog>
+</CommandDialog> */}
 
     </>
   );

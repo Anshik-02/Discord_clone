@@ -28,7 +28,8 @@ const icon=roleIcon[memberRole]
  }
 
   return (
-  <button onClick={()=>onClick()} className={cn("group hover:rounded-sm px-2 py-2 flex w-full items-center gap-x-2 hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition mb-1",
+    <>
+  {true &&(<button onClick={()=>onClick()} className={cn("group hover:rounded-sm px-2 py-2 flex w-full items-center gap-x-2 hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition mb-1",
     params?.memberId===memberId && "bg-zinc-700/20 rounded-sm dark:bg-zinc-600/70"
   )}>
     <UserAvatar  className="w-8 h-8 " src={profilePic}/>
@@ -36,6 +37,6 @@ const icon=roleIcon[memberRole]
       params?.memberId===memberId && "text-primary dark:text-zinc-200 dark:group-hover:text-white"
     )}>{memberName}</p>
     {icon}
-  </button>
-  )
+  </button>)}
+  </>  )
 }

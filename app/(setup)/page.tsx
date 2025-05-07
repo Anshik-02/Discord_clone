@@ -16,7 +16,7 @@ const member = await memberModel.find({
 });
 const memberIds=member.map((memb)=>memb._id)
 
-console.log("current profile",memberIds)
+
 
 if (!member) {
   return (
@@ -28,7 +28,7 @@ if (!member) {
 const server = await serverModel.findOne({
   memberId:{$in: memberIds }
 });
-console.log(server)
+
 
 if(server){
 return redirect(`/servers/${server.id}`)

@@ -39,7 +39,7 @@ const member=await memberModel.findOne({
     userId:profile.id,
     serverId:serverId
 })
-console.log(member,channel,server)
+
 if(!server){
     return res.status(401).json({error:"Not found"})
 }

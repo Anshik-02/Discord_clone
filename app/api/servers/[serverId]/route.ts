@@ -9,7 +9,7 @@ if(!profile){
     return NextResponse.json("Unauthorized user",{status:401})
 }
 const {name,imageUrl}=await req.json()
-console.log("grhhh",(await params).serverId)
+
 const updatedServer=await serverModel.updateOne(
     {_id:(await params).serverId,
     },

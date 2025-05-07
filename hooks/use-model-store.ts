@@ -17,11 +17,11 @@ export const useModel=create<ModalStore>((set)=>({
    data:{},
    isOpen:false,
    onOpen: (type, data = {}) => {
-    console.log("Opening modal:", type, data);
+
     set({ isOpen: true, type, data });
   },
   onClose: () => {
-    console.log("Closing modal");
+  
     set({ isOpen: false, type: null });
   },
 }))

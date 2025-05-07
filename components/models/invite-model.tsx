@@ -47,7 +47,7 @@ if(!isMounted) return null;
       const response = await axios.patch(
         `/api/servers/${server?.id}/invite-code`
       );
-      console.log(response.data);
+  
       onOpen("invite", { server: response.data });
     } catch (e) {
       console.log(e);

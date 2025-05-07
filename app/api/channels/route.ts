@@ -26,9 +26,9 @@ export async function POST(req: Request) {
         userId:profile.id,
         serverId:serverId
     }) 
-    console.log(channelId)
+   
     const server=await serverModel.updateOne({_id:serverId},{$push:{channelId:channelId._id}})
-    console.log(server)
+
     return NextResponse.json("Channel Created",{status:200})
 
   } catch (e) {

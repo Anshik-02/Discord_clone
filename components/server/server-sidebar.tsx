@@ -38,7 +38,6 @@ export default async function ServerSideBar({ serverId }: ServerSideBarProps) {
   const members = await memberModel.find({
     _id: { $in: server.memberId },
   }).populate("userId");
-console.log(members)
   if (!server) {
     return redirect("/");
   }
@@ -64,7 +63,7 @@ console.log(members)
   const videoChannels = data.filter((channel) => channel.type === "Video");
 
   return (
-    <div className="w-full  h-full text-primary dark:bg-[#2B2D31] bg-[#F2F3F5]   md:!flex flex-col">
+    <div className="w-full  h-full text-primary dark:bg-[#2B2D31] bg-[#F2F3F5] overflow-y-auto   md:!flex flex-col">
       <ServerHeader server={plainServer} role={currentUser.role} />
       <ScrollArea className="flex-1 px-3 ">
         <div className="mt-2">

@@ -3,7 +3,7 @@
 import { useChatQuery } from "@/hooks/use-chat-query";
 import ChatWelcome from "./chat-welcome";
 import { Loader2, ServerCrash } from "lucide-react";
-import { ElementRef, Fragment, useRef } from "react";
+import { ElementRef, Fragment, useEffect, useRef } from "react";
 import { ChatItem } from "./chat-item";
 import { format } from "date-fns";
 import { useChatSocket } from "@/hooks/use-chat-socket";
@@ -43,7 +43,6 @@ export default function ChatMessages({
   const addKey = `chat:${chatId}:messages`;
   const updateKey = `chat:${chatId}:message:update`;
   useChatSocket({ addKey, queryKey, updateKey });
-  const chatRef = useRef<ElementRef<"div">>(null);
   const bottomRef = useRef<ElementRef<"div">>(null);
 
   //@ts-ignore
@@ -55,7 +54,9 @@ export default function ChatMessages({
       paramValue,
     });
   //@ts-ignore
-
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [data]);
 
   if (status === "pending") {
     return (
@@ -79,14 +80,14 @@ export default function ChatMessages({
     );
   }
   return (
-    <div ref={chatRef} className="flex-1 flex flex-col  py-4 overflow-y-auto">
+    <div ref={chatRef} className="flex-1 flex flex-col  py-1 overflow-y-auto">
       {!hasNextPage && <div className="!flex-1 flex" />}
-      <div>
+      <div className="my-10">
         {!hasNextPage && <ChatWelcome name={name} type={type} />}
         {hasNextPage && (
           <div className="flex justify-center">
             {isFetchingNextPage ? (
-              <Loader2 className="h-6 w-6 text-zinc-500 animate-spin my-4 " />
+              <Loader2 className="h-6 w-6 text-zinc-500 animate-spin  " />
             ) : (
               <button
                 onClick={() => fetchNextPage()}
