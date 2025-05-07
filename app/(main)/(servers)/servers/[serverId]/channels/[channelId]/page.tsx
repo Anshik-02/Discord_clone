@@ -67,7 +67,7 @@ export default async function ChannelIdPage({ params }: any) {
         apiUrl="/api/socket/messages"
         query={{
           channelId: String(channel._id),
-          serverId: String(params.serverId),
+          serverId: String((await params).serverId),
         }}
       />
     </div>

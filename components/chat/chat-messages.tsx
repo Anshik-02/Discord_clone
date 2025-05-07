@@ -80,7 +80,7 @@ export default function ChatMessages({
     );
   }
   return (
-    <div ref={chatRef} className="flex-1 flex flex-col  py-1 overflow-y-auto">
+    <div className="flex-1 flex flex-col  py-1 overflow-y-auto">
       {!hasNextPage && <div className="!flex-1 flex" />}
       <div className="my-10">
         {!hasNextPage && <ChatWelcome name={name} type={type} />}
@@ -99,7 +99,7 @@ export default function ChatMessages({
             )}
           </div>
         )}
-        <div className="flex-1 overflow-y-auto" ref={chatRef}>
+        <div className="flex-1 overflow-y-auto" >
           <div className="flex flex-col-reverse mt-auto">
             {data?.pages.map((group, i) => (
               <Fragment key={i}>
